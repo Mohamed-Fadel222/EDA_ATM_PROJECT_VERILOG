@@ -28,7 +28,7 @@ parameter  IDLE = 4'b0000,
 			home  = 4'b0011,
 			withdraw  = 4'b0100,
 			deposit  = 4'b0101,
-			updbalance = 4'b0110,
+			balance = 4'b0110,
 			check_balance  = 4'b0111,
 			add_balance  = 4'b1000,
 			sub_balance = 4'b1001,
@@ -108,7 +108,8 @@ always@(*)
 					op = Operation; //in verification force user to exit as we don't have time
 					if(op == 2'b00) next_state = withdraw;
 					else if(op == 2'b01) next_state = deposit;
-					else if(op == 2'b10) next_state = updbalance;
+					else if(op == 2'b10) next_state = check_balance;
+					else if(op == 2'b11) next_state = add_balance;
 					else next_state = reset;
 				end
 				
@@ -143,7 +144,7 @@ always@(*)
 				
 				
 				
-			updbalance:
+			balance:
 				begin
 					Check_balance = balance;
 					next_state = home;
