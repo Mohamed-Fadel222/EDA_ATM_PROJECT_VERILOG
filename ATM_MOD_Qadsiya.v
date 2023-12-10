@@ -5,6 +5,7 @@ module mainmodule(
     input [3:0] AccountID,
     input [7:0] Deposit_amt,
     input [7:0] Withdraw_amt,
+    input [2:0] Operation,
     input Language_Choosen,
     input isCardinserted,
     input Exit,
@@ -79,9 +80,8 @@ always @(*) begin
             nextstate = chooseOP;
         end
         chooseOP: begin
-            // Logic for chooseOP state
-            // Define operations like deposit, withdraw, etc.
-            // Transition to respective states based on operations
+            //opcode=Operation;
+            //if (opcode==3'b000) nextstate=deposit (example for how to continue )
         end
         deposit: begin
             // Logic for deposit state
