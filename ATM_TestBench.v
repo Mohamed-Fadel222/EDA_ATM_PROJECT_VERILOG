@@ -44,9 +44,9 @@ module ATM_TestBench();
 		i = 0;
 		Choice =0;
 
-		#50 rst=1;
-		#50 rst=0;
-		/*
+	//	#50 rst=1;
+		// #50 rst=0;
+		// Test Successful 
 		for(i = 0 ; i < 1000; i = i+1)
 			begin
 			
@@ -89,8 +89,8 @@ module ATM_TestBench();
 		end
 
 		$display("First Stage Passed");
-*/
 
+/*
 		#50 rst = 1;
 		#50 rst = 0;
 		
@@ -116,7 +116,7 @@ module ATM_TestBench();
 		
 		$display("Last Stage Passed");
 		
-		$stop;
+		$stop; */
 	end
       
 endmodule
