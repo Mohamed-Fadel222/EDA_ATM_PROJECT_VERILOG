@@ -1,11 +1,6 @@
 
-
-
-
-
- 
-
 `timescale 1ns / 1ps
+
 `define DELAY #2
 module MainModule(
 	input clk,
@@ -13,7 +8,7 @@ module MainModule(
 	input [3:0] Pin,acc_number,newpin,
 	input [5:0] Deposit_Amount,
 	input [5:0] WithDraw_Amount,Transfer_amount,
-	input [1:0] Operation,
+	input [2:0] Operation,
 	output reg[7:0] FinalBalance, Check_balance,// ?????????
 	input Insert_card, Language_chosen  ,exit, home_in	 //InsertCard,LanguageChosen,Exit
     );
@@ -25,7 +20,7 @@ reg [3:0] next_state;
 reg [3:0] current_state;
 reg [1:0] destacc,srcacc; 
 reg [1:0] Counter = 2'b00;
-reg [1:0] op;
+reg [2:0] op;
 reg	isvalid= 1'b0,issufficent= 1'b0, Enteramount =1'b0, gohome=1'b0; //ValidPass,BalanceCheck,EnteredAmount, home
 
 parameter  IDLE = 4'b0000,
@@ -51,7 +46,6 @@ initial begin
     acc_ID[1] = 4'b0010; Pins[1] = 4'b0001;
     acc_ID[2] = 4'b0001; Pins[2] = 4'b0010;
     acc_ID[3] = 4'b0000; Pins[3] = 4'b0011;
-    
     end
 
 
@@ -128,9 +122,12 @@ always@(*)
 				begin
 					`DELAY
 					op = Operation; //in verification force user to exit as we don't have time
-					if(op == 2'b00) next_state = withdraw;
-					else if(op == 2'b01) next_state = deposit;
-					else if(op == 2'b10) next_state = updbalance;
+					if(op == 3'b000) next_state = withdraw;
+					else if(op == 3'b010) next_state = deposit;
+					else if(op == 3'b010) next_state = updbalance;
+					else if(op == 3'b011) next_state=transfer;
+                                        else if(op == 3'b100) next_state=changePin;
+                                        
 					else next_state = reset;
 				end
 
@@ -139,27 +136,29 @@ always@(*)
 					if(home_in) next_state = home;
 					else 
 					begin
-						if(isvalid)
-						begin 
-                    if(WithDraw_Amount  > 0) Enteramount = 1'b1; 
+					if(isvalid)
+					begin 
+                                        if(WithDraw_Amount  > 0) Enteramount = 1'b1; 
 					else Enteramount = 1'b0;
 					if(Enteramount) next_state = sub_balance;
 					else next_state = withdraw;
                                                 
                                           end
+                                       else next_state=reset;
 					end 
 				end
 			deposit: begin
 				if(home_in) next_state = home;
 					else 
 					begin
-						if(isvalid)
+					if(isvalid)
 				begin
 					if(Deposit_Amount > 0) Enteramount = 1'b1; 
 					else Enteramount = 1'b0;
 					if(Enteramount) next_state = add_balance;
 					else next_state = deposit;
 				end
+                                        else next_state=reset;
 				end 
 				end
 
