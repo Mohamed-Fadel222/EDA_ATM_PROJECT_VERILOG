@@ -1,0 +1,4 @@
+"M:\Apps\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=M:/Apps/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S "M:\Lectures\Third year\First term\Electronic Design Automation\Project\reference" -B "M:\Lectures\Third year\First term\Electronic Design Automation\Project\reference\cmake-build-debug"
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: M:/Lectures/Third year/First term/Electronic Design Automation/Project/reference/cmake-build-debug
