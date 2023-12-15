@@ -1,3 +1,0 @@
-M:/Lectures/Third year/First term/Electronic Design Automation/Project/reference/cmake-build-debug/CMakeFiles/reference.dir
-M:/Lectures/Third year/First term/Electronic Design Automation/Project/reference/cmake-build-debug/CMakeFiles/edit_cache.dir
-M:/Lectures/Third year/First term/Electronic Design Automation/Project/reference/cmake-build-debug/CMakeFiles/rebuild_cache.dir
