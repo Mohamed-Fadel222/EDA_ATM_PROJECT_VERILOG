@@ -8,18 +8,26 @@ exist. As well as assume account information like passwords, account numbers and
 exist locally with no need for database connection. 
 ## Features 
 The ATM system encompasses the following components:
+
 Card Handling:
+
 Language Used: (Specify the programming or hardware description language)
+
 Card Password:
+
 Timers:
+
 Operations: (Deposit, Withdraw, Balance Inquiry)
+
 Account Balances:
+
 Deposit Value:
+
 Withdrawal Value:
+
 Transfer: 
 
 ## Special thanks to my teammates 
-| Name           |
 |----------------|
 | Mohamed Fadel  |
 | Ahmed Elsheikh |
